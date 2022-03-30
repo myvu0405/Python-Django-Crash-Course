@@ -1,9 +1,9 @@
-from django.conf import settings
-from django.http import HttpResponse
+# from django.conf import settings
+# from django.http import HttpResponse
 from django.shortcuts import render,redirect
 
-from django.views.generic.list import ListView
-from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.views.generic.list import ListView
+# from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import *
 from .forms import *

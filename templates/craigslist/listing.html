@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block title %}
+Listing Detail
+{%endblock%}
+{% block content %}
+<a href="{% url 'listings' %}">Go Back</a>
+
+<h1>Title: {{listing.title}}</h1>
+<label>Created by: {{listing.user}}</label>
+<br>
+<label>Created at: {{listing.createdAt}}</label>
+
+<div class="listing-detail">
+    <label>Description: {{listing.description}}</label>
+    <label>Price: {{listing.price}} Euro</label>
+    <label>Location: {{listing.location}}</label>
+    <label>Contact: {{listing.contact}}</label>
+
+</div>
+
+{% endblock content%}

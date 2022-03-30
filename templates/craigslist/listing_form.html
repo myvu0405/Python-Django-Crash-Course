@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block title %}
+Add new Listing
+{%endblock%}
+
+{% block content %}
+
+<h3>Listing Form:</h3>
+<a href="{% url 'listings' %}">Go Back</a>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Add listing">
+</form>
+
+{% endblock content%}

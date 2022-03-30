@@ -21,6 +21,7 @@ urlpatterns = [
     path('user-auth/', include('user_auth.urls')),
     path('', include('post.urls')),
     path('tasks/', include('base.urls')),
+    path('listings/', include('craigslist.urls')),
 
 
 ]

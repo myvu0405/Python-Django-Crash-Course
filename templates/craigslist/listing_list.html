@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block title %}
+Craigslist
+{%endblock%}
+{% block content %}
+
+<h1>Craigslist</h1>
+<h2>Latest Listings</h2>
+<h3 style="margin: 0;">There is/are <i>{{count}}</i> listing{{count|pluralize:"s"}}.</h3>
+
+<a href="{% url 'listing-create' %}">Add A New Listing</a>
+
+{% for listing in listings %}
+    <div class="listing">
+        <small>Created at: <strong>{{listing.createdAt}}</strong></small>
+        <br>
+        <div class='listing-overview'>
+            <label>Title: {{listing.title}}</title>
+            <label>Description: {{listing.description}}</label>
+        </div>
+        <small>Posted by: <strong>{{listing.user}}</strong></small>
+        <br>
+        <a href="{% url 'listing' listing.id %}">View detail</a>
+    </div>
+    {% empty %}
+        <h3>No Listings to show.</h3>
+{% endfor %}    
+
+{% endblock content %}
+
