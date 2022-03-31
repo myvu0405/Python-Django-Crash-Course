@@ -4,9 +4,12 @@ from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='user-auth/login')
+@login_required(login_url='login')
 
 def allListings(request):
+
+    # if not request.user.is_authenticated:
+    #     return redirect('login')
 
     listings = Listing.objects.all().order_by('-createdAt')
     count = listings.count()

@@ -9,14 +9,7 @@ Login
 
 <form action="" method="POST">
     {% csrf_token %}
-    <label>Username: </label>
-    <br>
-    <input type="text" name="username" placeholder="Input your username"/>
-    <br>
-    <label>Password: </label>
-    <br>
-    <input type="password" name="password" placeholder="Input your password"/>
-    <br>
+    {{form.as_p}}
     <input type="submit" value="Login">
 </form>
 {% for message in messages %}
