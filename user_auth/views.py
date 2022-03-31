@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import redirect,render
 from django.views.generic.edit import FormView
 
@@ -18,10 +19,14 @@ def registerPage(request):
         form = UserRegisterForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created and saved to database for '+user)
-            return redirect('login')
+            if not request.POST['username'].isalpha():
+                messages.error(request, 'Username should only contain letters.')
+                return render(request, 'user_auth/register.html',{'form':form})
+            else:
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created and saved to database for '+user)
+                return redirect('login')
 
     context = {'form':form}
 
